@@ -1,5 +1,5 @@
 # AdvertiseX-Data-Engineering Case Study
 
-![Design Image](/images/Screenshot Design.png)
+![Design Image](/images/Design.png)
 
 
