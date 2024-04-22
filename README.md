@@ -20,7 +20,7 @@ The overall architecture is divided into multiple phases
 4) **Data Warehouse**
 
 **Integration**:
-To source data from various origins, I have opted for AWS Lambda, ECS, and EC2 instances. These services are cost-effective, support event-driven or scheduled operations, and allow for dynamic computational optimization of data movement applications. Furthermore, they facilitate logging within cloud services, which substantially aids in reducing the time needed for issue resolution from a support perspective.
+To source data from various origins, AWS Lambda, ECS, and EC2 have been opted for. These services are cost-effective, support event-driven or scheduled operations, and allow for dynamic computational optimization of data movement applications. Furthermore, they facilitate logging within cloud services, which substantially aids in reducing the time needed for issue resolution from a support perspective.
 
 **Storage**
 For a storage solution that is scalable and format-agnostic, I have selected Amazon S3. It is inherently scalable, fault-tolerant, cost-effective, and offers flexible management features for user access. Furthermore, S3 includes lifecycle management policies that can help in reducing costs by automating the deletion or migration of data. It also supports at rest and in flight encryption, which will be enabled for security of the data. 
