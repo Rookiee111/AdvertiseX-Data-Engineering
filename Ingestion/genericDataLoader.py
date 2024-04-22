@@ -2,22 +2,10 @@ import json
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, expr
 from ingestion.dataWriter import DataProcessor
+from ingestion.configLoader import ConfigLoader
 
-class ConfigLoader:
-    def __init__(self, spark_session, path):
-        self.spark = spark_session
-        self.path = path
-    
-    def load_config(self):
-        try:
-            config_df = self.spark.read.json(self.path)
-            config = config_df.collect()[0].asDict(recursive=True)
-            return config
-        except Exception as e:
-            print(f"Failed to load configuration: {e}")
-            raise
 
-class DataProcessor:
+class Process:
     def __init__(self, spark, config):
         self.spark = spark
         self.config = config
@@ -67,7 +55,7 @@ if __name__ == "__main__":
         config_loader = ConfigLoader(spark, config_path)
         config = config_loader.load_config()
 
-        processor = DataProcessor(spark, config)
+        processor = Process(spark, config)
         df = processor.read_data()
         df = processor.apply_schema(df)
         df = processor.transform_data(df)
