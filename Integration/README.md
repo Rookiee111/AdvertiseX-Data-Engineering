@@ -19,4 +19,9 @@ To avoid data duplicity, following things can be performed:
 2) Create an offset, which can highlight upto what point the data was copied, and using that filter new data can be moved.
 
 
+Real Time Data:
+For real time, I have configured a python based producer, that can read data from real time sources such as API's, IOT sensors/devices or other realtime source and ingest data into kafka. 
+
+The python producer APP can be hosted on ec2 instances so that its available throughout communicate with realtime sources and produce the records to be ingested in kafka. 
+
 
