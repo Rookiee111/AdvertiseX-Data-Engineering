@@ -1,3 +1,5 @@
+*The code added in this repository, is just demo code to highlight idea and facilitate the explanation of the design. It is not tested with configuration or test setup, the code is not executable. 
+
 ![Design Image](integration_image.png)
 
 The integration of data sources can be divided into 2:
