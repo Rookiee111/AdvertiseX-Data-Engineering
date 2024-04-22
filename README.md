@@ -74,8 +74,10 @@ I am considering the use of Terraform for deploying objects, services, and confi
 **Project Management**
 I would prefer the Scrum methodology as it fosters accountability and ensures a proper communication channel with business stakeholders regarding requirements and expectations. This structured approach also facilitates easy tracking of tasks and robust release management processes, allowing the team to allocate more time to focus on the actual technical work. By streamlining administrative duties, Scrum enables team members to concentrate on delivering high-quality outputs efficiently.
 
+**How orchestration would work**
+Essentially the configuration for tables that needs to be executed via databricks cluster, will be added along with its config details into dynamoDB, and the airflow pipeline will be scheduled. Airflow will trigger the databricks execution, that will read the config from dynamo DB to perform the ingestion for each table. 
 
-
+Additionally, for all the connection details will be stored AWS Key manager, which the code will fetch on the fly. 
 
 
 
