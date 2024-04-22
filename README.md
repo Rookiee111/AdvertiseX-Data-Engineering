@@ -86,7 +86,9 @@ Terraform is the chosen option for deploying objects, services, and configuratio
  
 
 
-
+Things note discussed in the design, but can be considered:
+1) Data Governance - Since in the solution provided, Databricks is proposed as a possible spark offering, it offers unity catalog for data governance, hence that could be readily available solution to that.
+2) Repository management - Nexus.
 
 
 
