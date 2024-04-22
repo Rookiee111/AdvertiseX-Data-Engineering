@@ -34,7 +34,7 @@
         },
         {
             "type": "de-duplicate",
-            "sql" : "dropDuplicates()
+            "sql" : "dropDuplicates()"
         },
         {
             "type": "filter",
