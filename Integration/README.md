@@ -1,1 +1,1 @@
-![Design Image](Integration/integration_image.png)
+![Design Image](integration_image.png)
