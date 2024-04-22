@@ -1,7 +1,6 @@
 import json
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, expr
-from ingestion.dataWriter import DataProcessor
 from ingestion.configLoader import ConfigLoader
 
 
@@ -43,6 +42,16 @@ class Process:
             else:
                 df = df.withColumn(add_col["col_name"], expr(add_col["sql"].format(col_name=add_col["col_name"])))
         return df
+
+    def write_to_bigquery(self, df):
+        self.spark.conf.set('temporaryGcsBucket', self.config["temp_gcs_bucket"])
+
+        # Write DataFrame to BigQuery
+        df.write.format('bigquery') \
+            .option('table', self.config["bigquery_table"]) \
+            .option('temporaryGcsBucket', self.config["temp_gcs_bucket"]) \
+            .mode('append') \
+            .save()
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
