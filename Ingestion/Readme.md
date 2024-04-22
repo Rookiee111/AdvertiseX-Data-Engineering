@@ -5,3 +5,5 @@ For explaining this better, following files have been added:
 3) genericConsumer -> its a spark streaming application that reads data from kafka, performs transformation.
 
 The above code is just a psuedo code for demo and explainability purposes, and is not actually created/tested to be run. 
+
+For correlating ad_impression and clicks conversion, it would be best to create a view on top the tables containing clicks data and ad_impression data, instead of combining data into clicks table and mixing data, to ensure data purity is maintained. For that, I have created a views.sql file that contains the logic on how to correlate. 
