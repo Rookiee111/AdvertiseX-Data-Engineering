@@ -25,7 +25,11 @@ class Process:
     def transform_data(self, df):
         for transform in self.config["transformations"]:
             if transform["type"] == "rename":
-                df = df.withColumnRenamed("user_id", "uid")
+                df = df.transform[sql]
+            if transform["type"] == "de-duplicate":
+                df = df.transform[sql]
+            if transform["type"] == "filter":
+                df = df.transform["sql"]
         return df
 
     def handle_joins(self, df):
