@@ -1,4 +1,4 @@
-#sample config
+--sample config
 {
     "s3-path": "s3://landing-zone/clicks_data/",
     "format": "json",
