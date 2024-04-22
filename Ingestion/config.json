@@ -30,7 +30,7 @@
     "transformations": [
         {
             "type": "rename",
-            "sql": "withColumn(uid, user_id).drop(user_id)"
+            "sql": "withColumnRenamed(user_id, uid)"
         },
         {
             "type": "de-duplicate",
@@ -38,7 +38,7 @@
         },
         {
             "type": "filter",
-            "sql": "select * from df_temp where clicks < 1"
+            "sql": ".filter(col('clicks_count') > 1)"
         }
     ],
     "Joins": [
