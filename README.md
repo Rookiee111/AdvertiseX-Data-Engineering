@@ -11,7 +11,7 @@ The overall design for this case study has been segmented into following section
 The case study is for adtech firm AdvertiseX, it help its partners with digital ad campaigns and tracking market penetration using such adverts. The data associated from such company is of diverse in nature, it contains datasets such as ad clicks data, demographic data of users showing interest in advertisement, location data etc. The design of the platform is performed considering the nature of data and the volume of it. 
 
 **Tech stack**
-The architecture of this platform is designed to leverage cloud technologies that offer dependable services with the promise of high availability, reliability, and reduced maintenance overhead. The cloud strategy in this design incorporates a hybrid approach utilizing both AWS and GCP, selected for their mature and continuously improving offerings. These providers have demonstrated robust and reliable technology stacks through years of operation and iterative enhancements. But with that said, the tech I have opted for can be deployed with other cloud offerings as well, however, how reliable those tech's are is something that will have to be checked. 
+The architecture of this platform is designed to leverage cloud technologies that offer dependable services with the promise of high availability, reliability, and reduced maintenance overhead. The cloud strategy in this design incorporates a hybrid approach utilizing both AWS and GCP, selected for their mature and continuously improving offerings. These providers have demonstrated robust and reliable technology stacks through years of operation and iterative enhancements. But with that said, the tech I have opted for can be deployed with other cloud offerings as well, however, how reliable those tech's are is something that will have to be checked. All the services will be behind VPC providing protection to any attacks. 
 
 The overall architecture is divided into multiple phases
 1) **Integration**
@@ -23,7 +23,7 @@ The overall architecture is divided into multiple phases
 To source data from various origins, I have opted for AWS Lambda, ECS, and EC2 instances. These services are cost-effective, support event-driven or scheduled operations, and allow for dynamic computational optimization of data movement applications. Furthermore, they facilitate logging within cloud services, which substantially aids in reducing the time needed for issue resolution from a support perspective.
 
 **Storage**
-For a storage solution that is scalable and format-agnostic, I have selected Amazon S3. It is inherently scalable, fault-tolerant, cost-effective, and offers flexible management features for user access. Furthermore, S3 includes lifecycle management policies that can help in reducing costs by automating the deletion or migration of data.
+For a storage solution that is scalable and format-agnostic, I have selected Amazon S3. It is inherently scalable, fault-tolerant, cost-effective, and offers flexible management features for user access. Furthermore, S3 includes lifecycle management policies that can help in reducing costs by automating the deletion or migration of data. It also supports at rest and in flight encryption, which will be enabled for security of the data. 
 
 **Compute For Ingestion**
 For the pub/sub system, I've chosen Apache Kafka for several compelling reasons:
@@ -66,6 +66,7 @@ Apache Airflow is a robust choice for orchestrating complex data workflows, than
 4) The dynamic pipeline generation feature enables creating workflows that are dynamic and responsive to changes in data or environment. 
 5) Additionally, Airflow’s rich user interface provides detailed visibility into the status of tasks, logs, and troubleshooting – a valuable feature for monitoring pipeline health and failure recovery.
 6) With a large and active community, users benefit from a vast repository of custom operators and frequent updates, further enhancing its capabilities and resilience.
+
 
 
  
