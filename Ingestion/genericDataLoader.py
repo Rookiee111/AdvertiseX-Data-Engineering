@@ -1,6 +1,7 @@
 import json
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, expr
+from ingestion.dataWriter import DataProcessor
 
 class ConfigLoader:
     def __init__(self, spark_session, path):
@@ -56,7 +57,10 @@ class DataProcessor:
         return df
 
 if __name__ == "__main__":
-    spark = SparkSession.builder.appName("Generic Data Loader").getOrCreate()
+    spark = SparkSession.builder \
+        .appName("Dynamic Data Processing OOP") \
+        .config('spark.jars.packages', 'com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.21.0') \
+        .getOrCreate()
     config_path = "s3://your-config-bucket/config.json"
 
     try:
@@ -70,6 +74,9 @@ if __name__ == "__main__":
         df = processor.handle_joins(df)
         df = processor.add_columns(df)
 
-        df.show()
+        processor.write_to_bigquery(df)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
