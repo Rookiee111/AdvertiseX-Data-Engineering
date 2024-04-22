@@ -22,21 +22,23 @@ Each play a critical role at different stages of the project. Me as a data engin
 
 Phase 1:
 **Integration**:
-This piece is crucial as we build generic SDK (Ex: AWS Lambda + ECS) to bridge the gap between source and our landing zone. We essentially automate the process where our solution will bring in any new data from source and dump it into our landing cloud bucket (example: S3).
-Here are the design consideration for this:
-1) Create a solution that can be event driven app, which means, when ever source has new data, that should trigger AWS lambda to provision an ECS cluster to fetch data from source parallely and dump it into landing bucket.
-2) Scheduled pipeline - Scheduled trigger for AWS lambda to trigger ECS that will do the copy from source to landing.
+Essentially bringing data from source into landing zone of the data platform. The consideration here is to create a solution which can be either event driven trigger or can be triggered in scheduled manner + having a serverless solution would help as it will reduce the maintenance overhead, hence I decided to pick AWS Lambda + ECS. This offers scalability and it can be triggered in multiple ways. 
 
-Error scenario:
-If for whatever reason ECS fails or is not able to complete the copy of data, Lambda code should trigger a copy of data in landing folder to error archive in S3 such that the impartial data is not loaded, additionally log information should be recorded why ECS failed for which AWS's cloud logs can be helpful, which is a managed service. 
+**Storage**
+Landing zone is on S3 its scalable, fault tolerant, cheap and has various policies to help restrict access + ways to manage object lifecycle with no restriction on the file format.
 
-While this could be the case with Batch data loads, we need to have specialised app/sdk that can deal with real time data and ingest into kafka, so we can write our producers that can integrate with multiple real time sources and ingest the streams into Kafka. 
+**Compute**
+For pub/sub system I decided to go ahead with Kafka for multiple reasons, It provides scalable way of publishing and subscribing events from its topics, as its distributed across cluster. It also has fault tolerance with replication, and it can be configured to ensure there are records lost and additionally it supports basic transformation of data hence reducing load on downstream ystems.
 
-There are multiple error scenarios that needs to be considered, which not all are listed but some of them are:
-1) How to make the producer resilient
-2) How to deal with duplicates in case of failure
+For data processing, Spark is a good choice, as its one stop solution to multiple problems. Its distributed, resilient, fault toleran, its fast as it does in memory computation, supports multiple languages, it solves problem of batch + real time processing as well as it supports ML algo for example in our case anomaly detection in data. Its a matured tech with integration to various systems. 
 
-While these may not necessarily be scenarios that are handled at producer level, but its important to make these scalable as the volume of data could be high and cover off as much risk as possible.
+**DwH**
+For housing gold version of data, BigQuery seems to be a good choice, as it works well with BI tools, its designed to support large complex scalable queries and views which are the major source of powering dashboard. 
+Redshift, could also have been an alternative, but its some times proven to be unreliable when it comes to large complex queries additionally, it requires manual effort to make table more optimised in redshift you need to periodically run scavanging ops which are expensive. 
+Azure Synapse, in my opinion has had availability issues, hence BQ is the choice I decided for this purpose. 
+
+**Data Exploration**
+Since multiple teams need to explore data for their requirements, AWS Glue + Athena on S3 seems like a good choice. It reduces time for raw data to be made available for the other teams like product managers, DS. Its serverless, scalable, uses sql which is known by many users. 
 
 
 
