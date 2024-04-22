@@ -19,6 +19,11 @@
             "name": "timestamp",
             "type": "timestamp",
             "is_nullable": true 
+        },
+        {
+            "name": "click_counts",
+            "type": "int",
+            "is_nullable": "true"
         }
 
     ],
@@ -26,6 +31,14 @@
         {
             "type": "rename",
             "sql": "withColumn(uid, user_id).drop(user_id)"
+        },
+        {
+            "type": "de-duplicate",
+            "sql" : "dropDuplicates()
+        },
+        {
+            "type": "filter",
+            "sql": "select * from df_temp where clicks < 1"
         }
     ],
     "Joins": [
