@@ -1,6 +1,6 @@
 # AdvertiseX-Data-Engineering Case Study
 
-![Design Image](Images/Design.png)
+![Design Image](Design.png)
 
 This case study examines AdvertiseX, an adtech firm that enhances digital advertising campaigns for its partners and analyzes market penetration. By leveraging extensive datasets—ranging from ad click data and user demographics to location information—AdvertiseX extracts valuable insights from the vast volumes of data generated through digital ads. The platform's design meticulously accommodates the nature and scale of the data, ensuring efficient processing and meaningful analysis.
 
