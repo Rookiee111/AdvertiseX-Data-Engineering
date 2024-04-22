@@ -17,8 +17,10 @@ The overall architecture is divided into multiple phases
 2) **Ingestion**
 3) **Data Quality**
 4) **Data Warehouse**
-5) **EDA - Exploratory Data Analysis**
-6) **Orchestration**
+
+Not Explicitly highlighted
+6) **EDA - Exploratory Data Analysis**
+7) **Orchestration**
 
 **Integration**:
 To source data from various origins, AWS Lambda, ECS, and EC2 have been opted for. These services are cost-effective, support event-driven or scheduled operations, and allow for dynamic computational optimization of data movement applications. Furthermore, they facilitate logging within cloud services, which substantially aids in reducing the time needed for issue resolution from a support perspective.
