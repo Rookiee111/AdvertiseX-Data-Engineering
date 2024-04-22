@@ -8,6 +8,6 @@ The above code is just a psuedo code for demo and explainability purposes, and i
 
 For correlating ad_impression and clicks conversion, it would be best to create a view on top the tables containing clicks data and ad_impression data, instead of combining data into clicks table and mixing data, to ensure data purity is maintained. For that, I have created a views.sql file that contains the logic on how to correlate. 
 
-click_through_rate = > counts of users that clicked on the ad.
+**click_through_rate** = > counts of users that clicked on the ad.
 
-conversion_rate = > counts of users that actioned the ad after clicking it. 
+**conversion_rate** = > counts of users that actioned the ad after clicking it. 
