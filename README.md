@@ -67,8 +67,8 @@ Apache Airflow is a robust choice for orchestrating complex data workflows, than
 5) Additionally, Airflow’s rich user interface provides detailed visibility into the status of tasks, logs, and troubleshooting – a valuable feature for monitoring pipeline health and failure recovery.
 6) With a large and active community, users benefit from a vast repository of custom operators and frequent updates, further enhancing its capabilities and resilience.
 
-
-
+**DevOps**
+I am considering the use of Terraform for deploying objects, services, and configurations within my cloud platform. Terraform provides precise control over the deployment process, meticulously tracking which users are deploying changes. This approach significantly reduces the likelihood of human errors that could impact the data platform's integrity. Additionally, Terraform's infrastructure as code (IaC) model ensures consistent and reproducible setups across different environments, enhancing operational reliability and efficiency.
  
 
 
