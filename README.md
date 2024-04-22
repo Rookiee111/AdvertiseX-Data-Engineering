@@ -71,9 +71,8 @@ Apache Airflow is a robust choice for orchestrating complex data workflows, than
 I am considering the use of Terraform for deploying objects, services, and configurations within my cloud platform. Terraform provides precise control over the deployment process, meticulously tracking which users are deploying changes. This approach significantly reduces the likelihood of human errors that could impact the data platform's integrity. Additionally, Terraform's infrastructure as code (IaC) model ensures consistent and reproducible setups across different environments, enhancing operational reliability and efficiency.
  
 
-
-
-
+**Project Management**
+I would prefer the Scrum methodology as it fosters accountability and ensures a proper communication channel with business stakeholders regarding requirements and expectations. This structured approach also facilitates easy tracking of tasks and robust release management processes, allowing the team to allocate more time to focus on the actual technical work. By streamlining administrative duties, Scrum enables team members to concentrate on delivering high-quality outputs efficiently.
 
 
 
